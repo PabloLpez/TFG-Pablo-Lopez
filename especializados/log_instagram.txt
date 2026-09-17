@@ -1,0 +1,77 @@
+[+] Columnas one-hot eliminadas: ['origen_movil_directo', 'origen_instagram', 'origen_twitter', 'origen_whatsapp', 'origen_youtube', 'origen_desconocido']
+
+[+] Dataset: 93 | Reales: 53 | Falsos: 40
+
+[+] Distribución origen × clase:
+label      real  fake
+origen               
+instagram    53    40
+
+[+] Avisos de balance:
+   ✓ Sin avisos graves
+
+════════════════════════════════════════════════════════════════
+═══════════════════ CV ESTRATIFICADA 5-FOLD ════════════════════
+════════════════════════════════════════════════════════════════
+  [RF  ]  Acc: 0.765±0.068 | AUC: 0.845±0.085 | F1: 0.708
+  [GBM ]  Acc: 0.733±0.114 | AUC: 0.814±0.087 | F1: 0.700
+  [LR  ]  Acc: 0.678±0.078 | AUC: 0.714±0.086 | F1: 0.624
+  [XGB ]  Acc: 0.787±0.086 | AUC: 0.854±0.072 | F1: 0.754
+
+[✓] Mejor según AUC-CV: XGB (0.854)
+
+════════════════════════════════════════════════════════════════
+═══════════════════════ REPORTE TEST 20% ═══════════════════════
+════════════════════════════════════════════════════════════════
+              precision    recall  f1-score   support
+
+        Real       0.77      0.91      0.83        11
+    IA/Falso       0.83      0.62      0.71         8
+
+    accuracy                           0.79        19
+   macro avg       0.80      0.77      0.77        19
+weighted avg       0.80      0.79      0.78        19
+
+  Confusión:
+[[10  1]
+ [ 3  5]]
+  ROC-AUC global: 0.7955
+
+  DESGLOSE POR ORIGEN (test set):
+  origen                n    acc   prec    rec    AUC
+  ------------------ ----  -----  -----  -----  -----
+  instagram            19  0.789  0.833  0.625  0.795
+
+  TOP 15 FEATURES (importancia nativa):
+    fft_energia_media                0.1253  █████████████████████████
+    ca_desfase_medio                 0.0627  ████████████
+    nitidez_std                      0.0610  ████████████
+    nitidez_media                    0.0508  ██████████
+    ca_desfase_std                   0.0478  █████████
+    fft_ratio_alta_baja              0.0478  █████████
+    ipb_gop_std                      0.0472  █████████
+    brillo_tendencia                 0.0471  █████████
+    dct_ratio                        0.0432  ████████
+    ruido_std                        0.0388  ███████
+    flujo_std                        0.0331  ██████
+    ipb_pct_b                        0.0323  ██████
+    flujo_salto_maximo               0.0312  ██████
+    brillo_std                       0.0311  ██████
+    ipb_pct_i                        0.0293  █████
+
+  ANÁLISIS DE PROXIES DE PLATAFORMA:
+    ✓ No se detectan correlaciones fuertes con plataforma
+
+  [✓] importancia_features.png
+  [✓] shap_resumen.png
+
+[+] Reentrenando con todos los datos para producción...
+
+[✓] Modelo guardado: C:\Users\plope\Desktop\TFG\especializados\modelo_instagram.pkl
+
+
+--- STDERR ---
+C:\Users\plope\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\lib\_function_base_impl.py:2999: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\plope\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\lib\_function_base_impl.py:3000: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]

@@ -1,0 +1,13 @@
+flask
+opencv-python
+numpy
+scipy
+pandas
+scikit-learn
+xgboost
+shap
+matplotlib
+yt-dlp
+google-generativeai
+mediapipe
+python-dotenv

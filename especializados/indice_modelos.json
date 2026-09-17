@@ -1,0 +1,8 @@
+{
+  "modelo_unificado": "modelo_v2.pkl",
+  "modelos_especializados": {
+    "instagram": "especializados/modelo_instagram.pkl",
+    "movil_directo": "especializados/modelo_movil_directo.pkl",
+    "twitter": "especializados/modelo_twitter.pkl"
+  }
+}
