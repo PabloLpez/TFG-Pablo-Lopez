@@ -1,4 +1,4 @@
-# 🔍 Detector Forense de Vídeo Generado por IA
+# Detector Forense de Vídeo Generado por IA
 
 > Sistema híbrido de detección de vídeo sintético (deepfakes y vídeo generado por modelos de difusión como Sora, Veo o Runway) que combina análisis forense de señal, machine learning supervisado, biometría facial y un modelo multimodal de lenguaje y visión.
 
@@ -12,7 +12,7 @@
 <!-- Recomendado: añade aquí una captura o GIF de la app en acción -->
 <!-- ![Demo](docs/demo.gif) -->
 
-## 📑 Índice
+## Índice
 
 - [Sobre el proyecto](#sobre-el-proyecto)
 - [Cómo funciona](#cómo-funciona)
@@ -42,6 +42,8 @@ Este proyecto aborda el problema con un sistema **explicable y sensible a la pla
 
 Cada veredicto va acompañado de su explicación mediante **SHAP** (qué evidencias concretas lo justifican), en lugar de una única cifra sin contexto.
 
+Demostración disponible en el archivo demostracion.mp4 del repositorio.
+
 ## Cómo funciona
 
 ```
@@ -60,20 +62,11 @@ Vídeo (archivo o URL)
 
 Evaluación sobre un **holdout independiente de 139 vídeos**, nunca vistos durante el entrenamiento, procesados con el mismo pipeline que usa la aplicación:
 
-| Métrica | Valor |
-|---|---|
-| AUC global | **0,813** |
-| Accuracy global | 75,5 % |
-| F1-score | 0,75 |
-| MCC | ≈ 0,52 |
-
-| Plataforma | n | AUC | Accuracy |
-|---|---|---|---|
-| Instagram | 45 | 0,868 | 77,8 % |
-| Móvil directo | 44 | 0,808 | 75,0 % |
-| Twitter / X | 50 | 0,806 | 74,0 % |
+<img width="1358" height="509" alt="image" src="https://github.com/user-attachments/assets/abf09a17-c434-429f-9c55-8174637accda" />
 
 El desarrollo incluyó un diagnóstico explícito de **sesgo de dominio** entre plataformas (validación Leave-One-Platform-Out) que motivó la arquitectura de modelos especializados + enrutador.
+
+<img width="1373" height="639" alt="image" src="https://github.com/user-attachments/assets/1c2933fc-7091-44e9-9388-cef413bbd5b9" />
 
 ## Stack tecnológico
 
@@ -110,8 +103,6 @@ El desarrollo incluyó un diagnóstico explícito de **sesgo de dominio** entre 
 ├── requirements.txt
 └── README.md
 ```
-
-> Ajusta este árbol si tu repositorio organiza los archivos de otra forma.
 
 ## Requisitos previos
 
@@ -176,16 +167,6 @@ python-dotenv
 ```
 
 > La primera vez que se ejecuta el análisis facial, MediaPipe descarga automáticamente el modelo `face_landmarker.task` (~3 MB), por lo que se necesita conexión a internet en el primer uso.
-
-## Configuración
-
-Crea un archivo `.env` en la raíz del proyecto (no se sube al repositorio) con tu clave de Gemini:
-
-```
-GEMINI_API_KEY=tu_clave_aqui
-```
-
-Puedes obtener una clave gratuita en [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey). Si no se configura, la aplicación funciona igualmente: simplemente no se muestra el análisis de contexto semántico.
 
 ## Ejecución
 
@@ -252,12 +233,10 @@ El dataset de vídeos (reales y generados por IA, algunos con rostros de persona
 
 ## Licencia
 
-Distribuido bajo licencia MIT. Puedes usar, copiar y modificar el código citando la autoría original. Consulta el archivo `LICENSE`.
+Distribuido bajo licencia MIT. Puedes usar, copiar y modificar el código citando la autoría original.
 
 ## Autor
 
-**[Tu nombre]**
+**Pablo López Martínez**
 Grado en Tecnología Digital y Multimedia — Universitat Politècnica de València
-[LinkedIn](https://linkedin.com/in/tu-perfil) · [Correo](mailto:tu-correo@ejemplo.com)
-
-> Memoria completa del TFG disponible bajo petición.
+[LinkedIn](https://www.linkedin.com/in/pablo-lopez-martinez/) · [Correo](mailto:plopezm2004@gmail.com)
