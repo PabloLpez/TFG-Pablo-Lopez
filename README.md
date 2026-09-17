@@ -129,7 +129,7 @@ Comprueba que están accesibles:
 ```bash
 ffmpeg -version
 ffprobe -version
-exiftool -ver
+exiftool -ver (si no está accesible, crear variable de entorno llamada EXIFTOOL_PATH cuya ruta apunte dentro de la carpeta con el .exe)
 ```
 
 ## Instalación
